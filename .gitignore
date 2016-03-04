@@ -6,4 +6,5 @@
 !.lein/
 !Documents/Org/
 !bin/
+!.fonts/
 !.gitignore
