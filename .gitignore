@@ -4,7 +4,7 @@
 !.emacs.d/
 !.spacemacs
 !.lein/
+!*.fonts/
 !Documents/Org/
 !bin/
-!.fonts/
 !.gitignore
