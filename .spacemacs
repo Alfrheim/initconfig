@@ -267,7 +267,19 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
   (setq-default dotspacemacs-themes '(monokai solarized-dark zonokai))
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2
+   tab-width 2)
 
+  (setq-default json-reformat:indent-width 2
+                json-reformat:pretty-string? t)
   )
 
 (defun dotspacemacs/user-config ()
