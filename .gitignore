@@ -1,5 +1,7 @@
 # Ignore everything
 *
+.*
+*/*
 # But not these files
 !.emacs.d/
 !.spacemacs

@@ -282,6 +282,24 @@ in `dotspacemacs/user-config'."
                 json-reformat:pretty-string? t)
   )
 
+(defun localizadores->sql
+    ()
+  (interactive)
+  (goto-char (point-min))
+  (insert "(\"")
+  (goto-char (line-end-position))
+  (insert "\",")
+  (setq moreLines t)
+  (while (= 0 (forward-line 1))
+                                        ;(goto-char (line-beginning-position))
+    (insert "\"")
+    (goto-char (line-end-position))
+    (insert "\",")
+    )
+  (delete-backward-char 1)
+  (insert ")")
+  )
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
