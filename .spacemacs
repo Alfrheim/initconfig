@@ -308,6 +308,11 @@ layers configuration. You are free to put any user code."
   ;; Pretty symbols for anonymous functions, set literals and partial functions
   (setq clojure-enable-fancify-symbols t)
 
+  ;; Not truncate lines in sql
+  (add-hook 'sql-interactive-mode-hook
+            (lambda ()
+              (toggle-truncate-lines t)))
+
   ;; SmartParens
   ;; (define-key smartparens-mode-map (kbd "your-key") 'function)
   ;; jr0cket: kill sexp the smartparens way, overrides kill-sexp when smartparens mode is on
