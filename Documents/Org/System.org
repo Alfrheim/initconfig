@@ -1,6 +1,6 @@
 * System
 ** Linux INIT
-- Emacs 
+*** Emacs 
   [[https://www.gnu.org/software/emacs/#Obtaining][https://www.gnu.org/software/emacs/#Obtaining]]
   #+BEGIN_SRC bash
     cd ~/
@@ -9,12 +9,12 @@
     git fetch --all --prune
     git checkout master
   #+END_SRC
-- Spotify
-  Source: [[https://www.spotify.com/es/download/][HowTo Download]]
+*** Spotify
+Source: [[https://www.spotify.com/es/download/][HowTo Download]]
 
   1. Add the Spotify repository signing key to be able to verify downloaded packages
     #+BEGIN_SRC bash
-      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
     #+END_SRC
   2. Add the Spotify repository
     #+BEGIN_SRC bash
@@ -29,9 +29,36 @@
       sudo apt-get install spotify-client
     #+END_SRC
   
-- PlayonLinux
+*** PlayonLinux
 #+BEGIN_SRC bash
 wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -
 sudo wget http://deb.playonlinux.com/playonlinux_trusty.list -O /etc/apt/sources.list.d/playonlinux.list
 sudo apt-get update
 #+END_SRC
+*** Java
+https://www.digitalocean.com/community/tutorials/instalar-java-en-ubuntu-con-apt-get-es
+**** change Java
+**** En cas de no tenirne
+    sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/java-6.31-oracle/bin/java" 1
+    sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/java-6.31-oracle/bin/javac" 1
+**** comandes
+   sudo update-alternatives --config java
+   sudo update-alternatives --config javac
+*** openvpn
+Add at the end certificate:
+#+BEGIN_SRC bash
+script-security 2
+up /usr/share/openvpn/update-resolv-conf
+down /usr/share/openvpn/update-resolv-conf
+#+END_SRC
+Then install and link:
+#+BEGIN_SRC bash
+cp /etc/openvpn/update-resolv-conf /usr/share/openvpn/
+chmod ugo+x /usr/share/openvpn/update-resolv-conf
+apt-get install resolvconf
+ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
+#+END_SRC
+
+More info: [[https://elhombrequereventodeinformacion.wordpress.com/tag/openvpn/][Fix dns problem with OpenVPN]]
+
+

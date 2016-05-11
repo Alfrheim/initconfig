@@ -1,10 +1,153 @@
 * Release 0.105.x
+** 0.105.19 (2016/04/20)
+*** Fixes
+- Fix =dired-x= autoload (thanks to darkfeline)
+- Fix ~SPC f y~ in =dired= buffers (thanks to dcluna)
+- Fix ~C-i~ key binding for =evil-jump-forward=.
+- Fix ~SPC q r~ to restart Emacs and restore Spacemacs layouts.
+- Fix go to next/previous error when a compilation buffer is opened
+  (thanks to dennishamester)
+- Fix error when opening =spacemacs-helm= with unknown org documentation
+  files (thanks to kuangdash)
+- Fix wrong states when exiting =evil-lisp-state= and =evil-iedit-state=
+  while using the =emacs= editing style.
+- Fix ASCII banners first line being overwritten by the version numbers
+- Use MELPA version of =persp-mode=, the package may need to be deleted
+  manually from the =elpa= directory and a restart of Emacs may be
+  required.
+- Discover layers before running dotfile tests when reloading the
+  configuration, prevents false negatives (thanks to TheBB)
+- Remove duplicated configuration for =eldoc= (thanks to zilongshanren)
+*** Layer changes
+**** Clojure
+- Fix usage of deprecated =cider-turn-on-eldoc-mode=, using =eldoc-mode=
+  instead (thanks to tekacs and sooheon)
+**** Elm
+- Fix text copy/paste
+- Fix auto-completion
+**** Javascript
+- Improve detection of =tern= binary, if =tern= is not found a message
+  is displayed in the =*Messages*= buffer (thanks to nixmaniack)
+**** Go
+- Fix execution of tests with function names containing underscores
+  (thanks to jaffee)
+**** Python
+- Use MELPA version of =py-yapf= package (thanks to cpaulik)
+- Fix =makefile= of =pylookup= (thanks to hemcsec)
+- Disable =semantic-idle-summary= which obfuscates =anaconda= information
+  in the minibuffer (thanks to cpaulik)
+**** Scala
+- Fix =ensime-typecheck-current-file=, rename it to
+  =ensime-typecheck-current-buffer=
+- Fix =scala-enable-eldoc-mode=, rename it to =scala-enable-eldoc=
+  (thanks to channingwalton)
+**** Shell
+- Fix error when attempting to delete the last shell window
+  (thanks to joelmccracken)
+**** Tmux
+- Fix loading of package (thanks to aaronjensen)
+**** Vinegar
+- Correct =dired= configuration (thanks to StreakyCobra)
+*** Improvements
+- Various documentation improvements (thanks to d12frosted, gilch, ksrb,
+  nixmaniack, StreakyCobra, TheBB, The-Compiler, xiaohanyu)
+** 0.105.18 (2016/04/10)
+- Revert hotfix for =Yasnippet=, the bug has been fixed upstream and is now
+  available in MELPA (thanks to TheBB)
+- Remove oboslete package =evil-jumper= which is now part of =evil=
+  (thanks to justbur)
+** 0.105.17 (2016/04/09)
+- Hotfix for Yasnippet, using stable version until resolution of
+ https://github.com/capitaomorte/yasnippet/issues/673
+** 0.105.16 (2016/04/01)
+- Add FAQ entry about HTTPS issues (thanks to TheBB)
+- Add startup list to Zemacs home buffer.
+** 0.105.15 (2016/04/01)
+*** Improvements
+- Emacs to THE MAX! Release of Zemacs!
+*** Layer changes
+**** Javascript
+- New layer variable =javascript-disable-tern-port-files=, when non nil
+  tern port files are not created. Default value is nil. (thanks to mijoharas)
+**** Swift
+- Fix all =swift= major-mode key bindings (thanks to xinranmsn)
+** 0.105.14 (2016/03/09)
+*** Fixes
+- Fix bad window index for =neotree= buffer (thanks to bmag)
+- Fix error when using ~SPC p l~ right after Emacs started (thanks to bixuanzju)
+*** Layer changes
+**** Go
+- Fix bug when there is no test suite when running tests
+  (thanks to bogdanteleaga)
+**** React
+- Fix broken =helm-imenu= (thanks to huaoguo)
+*** Improvements
+- Various documentation improvements (thanks to triklsbg)
+
+** 0.105.13 (2016/03/06)
+*** Fixes
+- Fix smooth-scroll toggling at startup (thanks to TheBB)
+- Fix auto-completion toggle ~SPC t a~ (thanks to TheBB)
+*** Layer changes
+**** Clojure
+- Fix function name =cider-pop-back= (thanks to mlachmih)
+**** Scala
+- Fix various function names:
+  - =ensime-refactor-diff-organize-imports=
+  - =ensime-refactor-diff-extract-method=
+  - =ensime-refactor-diff-rename=
+  - =ensime-refactor-diff-extract-local=
+  (thanks to TheBB)
+*** Improvements
+- Reformat =README.md= title section.
+- Add a GitHub pull request template (thanks to robbyoconnor)
+** 0.105.12 (2016/03/02)
+*** Fixes
+- Fix activation of package dependencies
+- Fix =smooth-scrolling= error due to recent changes in package repository
+*** Layer changes
+**** Distribution
+- New key binding ~SPC t v~ to toggle smooth scrolling.
+**** C-C++
+- Add notes on related layers (thanks to magthe)
+- Remove srefactor from static package list (thanks to magthe)
+- Set paths for C headers from clang (thanks to magthe)
+**** Evil-snipe
+- Disable =evil-snipe= in =ranger= (thanks to TheBB)
+**** Haskell
+- Fix bad indentation when pasting text (thanks to robbyoconnor)
+**** Markdown
+- Add support for =rust= code blocks (thanks to panicbit)
+**** Org
+- Fix custom Spacemacs layout when =org-agenda-files= isn't a list.
+  The org-agenda-files variable can be the name of a directory or a file.
+  (thanks to jmiven)
+**** Osx
+- Fix =osx-use-options-as-meta= for Emacs 25 (thanks to d12frosted)
+**** React
+- make =evil-matchit= jump between html/jsx tags (thanks to tko)
+**** Racket
+- Add command prefix names for =racket-mode= key bindings
+  (thanks to rodrigosetti)
+**** Scala
+- Rename =ensime-refactor-inline-local= to =ensime-refactor-diff-inline-local=
+  (thanks to chessman)
+**** Shell
+- Fix reverse key bindings for comint-previous/next (thanks to olejorgenb))
+- Scope the aliases under =eshell= so they are not defined globally
+  (thanks to bling)
+**** Themes megapack
+- Add =railscasts-theme= (thanks to olsonjeffery)
+*** Improvements
+- Improve =toggle-maximize-centered-buffer= (thanks to justbur)
+- Add =display-graphic-p= to ~SPC h d s~ (thanks to TheBB)
+- Various documentation improvements (thanks to d12frosted, davbo, marcopaga,
+  microamp, nixmaniack, NJBS, SShrike, TheBB, Tinche, triklsbg, xfq)
 ** 0.105.11 (2016/02/18)
 Improve loading robustness:
-- when an ELPA repository is down Spacemacs will now be able to finish
-loading,
-- Spacemacs will use the default theme (i.e. no theme) if there is any
-error during the download of the starting theme.
+- When an ELPA repository is down Spacemacs will now be able to finish loading
+- Spacemacs will use the default theme (i.e. no theme) if there is any error
+  during the download of the starting theme.
 ** 0.105.10 (2016/02/18)
 *** Fixes
 - Fix re-toggle of fullscreen when pressing ~SPC f e R~ (thanks to MadAnd)

@@ -72,8 +72,10 @@ packages then consider to create a layer, you can also put the
 configuration in `dotspacemacs/user-config'.")
 
 (defvar dotspacemacs-editing-style 'vim
-  "Either `vim' or `emacs'. Evil is always enabled but if the variable
-is `emacs' then the `holy-mode' is enabled at startup.")
+  "One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
+variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
+uses emacs key bindings for vim's insert mode, but otherwise leaves evil
+unchanged.")
 
 (defvar dotspacemacs-startup-banner 'official
    "Specify the startup banner. Default value is `official', it displays
@@ -547,6 +549,7 @@ error recovery."
   "Test settings in dotfile for correctness.
  Return non-nil if all the tests passed."
   (interactive)
+  (setq configuration-layer-paths (configuration-layer//discover-layers))
   (let ((min-version "0.0"))
     ;; dotspacemacs-version not implemented yet
     ;; (if (version< dotspacemacs-version min-version)

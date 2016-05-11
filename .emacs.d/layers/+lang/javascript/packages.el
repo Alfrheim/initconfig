@@ -82,7 +82,7 @@
     :init
     (progn
       (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-      ;; required to make `<SPC> s l' to work correctly
+      ;; Required to make imenu functions work correctly
       (add-hook 'js2-mode-hook 'js2-imenu-extras-mode))
     :config
     (progn
@@ -187,9 +187,12 @@
 (defun javascript/init-tern ()
   (use-package tern
     :defer t
+    :if (javascript//tern-detect)
     :init (add-hook 'js2-mode-hook 'tern-mode)
     :config
     (progn
+      (when javascript-disable-tern-port-files
+        (add-to-list 'tern-command "--no-port-file" 'append))
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "rrV" 'tern-rename-variable)
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "hd" 'tern-get-docs)
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "gg" 'tern-find-definition)
