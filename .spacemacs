@@ -282,23 +282,6 @@ in `dotspacemacs/user-config'."
                 json-reformat:pretty-string? t)
   )
 
-(defun localizadores->sql
-    ()
-  (interactive)
-  (goto-char (point-min))
-  (insert "(\"")
-  (goto-char (line-end-position))
-  (insert "\",")
-  (setq moreLines t)
-  (while (= 0 (forward-line 1))
-                                        ;(goto-char (line-beginning-position))
-    (insert "\"")
-    (goto-char (line-end-position))
-    (insert "\",")
-    )
-  (delete-backward-char 1)
-  (insert ")")
-  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -359,6 +342,37 @@ layers configuration. You are free to put any user code."
   ;; When a TODO item enters DONE, add a CLOSED: property with current date-time stamp
   (setq org-log-done 'time)
   )
+
+(defun string->sql
+    ()
+  "Function that put quotes to a list of strings for querying sql in IN."
+  (interactive)
+  (goto-char (point-min))
+  (insert "(\"")
+  (goto-char (line-end-position))
+  (insert "\",")
+  (setq moreLines t)
+  (while (= 0 (forward-line 1))
+    (insert "\"")
+    (goto-char (line-end-position))
+    (insert "\","))
+  (delete-backward-char 1)
+  (insert ")"))
+
+(defun int->sql
+    ()
+  "Function that put comas to a list of integers for querying sql in IN."
+  (interactive)
+  (goto-char (point-min))
+  (insert "(")
+  (goto-char (line-end-position))
+  (insert ",")
+  (setq moreLines t)
+  (while (= 0 (forward-line 1))
+    (goto-char (line-end-position))
+    (insert ","))
+  (delete-backward-char 1)
+  (insert ")"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
