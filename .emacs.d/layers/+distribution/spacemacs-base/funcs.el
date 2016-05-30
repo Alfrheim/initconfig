@@ -117,14 +117,15 @@ the current state and point position."
 ;; TODO: dispatch these in the layers
 (defvar spacemacs-indent-sensitive-modes
   '(coffee-mode
-    python-mode
-    slim-mode
+    elm-mode
     haml-mode
-    yaml-mode
+    haskell-mode
+    slim-mode
     makefile-mode
+    makefile-bsdmake-mode
     makefile-gmake-mode
     makefile-imake-mode
-    makefile-bsdmake-mode)
+    python-mode)
   "Modes for which auto-indenting is suppressed.")
 
 (defcustom spacemacs-yank-indent-threshold 1000
@@ -177,32 +178,24 @@ the current state and point position."
       (window-configuration-to-register ?_)
       (delete-other-windows))))
 
-;; A small minor mode to use a big fringe
-;; from http://bzg.fr/emacs-strip-tease.html
-(defvar bzg-big-fringe-mode nil)
-(define-minor-mode bzg-big-fringe-mode
+;; A small minor mode to use a big fringe adapted from
+;; http://bzg.fr/emacs-strip-tease.html
+(define-minor-mode spacemacs-centered-buffer-mode
   "Minor mode to use big fringe in the current buffer."
-  :init-value nil
   :global t
-  :variable bzg-big-fringe-mode
+  :init-value nil
   :group 'editing-basics
-  (if (not bzg-big-fringe-mode)
-      (set-fringe-style nil)
-    (set-fringe-mode
-     (/ (- (frame-pixel-width)
-           (* 100 (frame-char-width)))
-        2))))
-
-(defun spacemacs/toggle-maximize-centered-buffer ()
-  "Maximize buffer and center it on the screen"
-  (interactive)
-  (if (= 1 (length (window-list)))
-      (progn  (bzg-big-fringe-mode 0)
-              (jump-to-register '_))
-    (progn
-      (set-register '_ (list (current-window-configuration)))
-      (delete-other-windows)
-      (bzg-big-fringe-mode 1))))
+  (if spacemacs-centered-buffer-mode
+      (progn
+        (window-configuration-to-register ?_)
+        (delete-other-windows)
+        (set-fringe-mode
+         (/ (- (frame-pixel-width)
+               (* 100 (frame-char-width)))
+            2)))
+    (set-fringe-style nil)
+    (when (assoc ?_ register-alist)
+      (jump-to-register ?_))))
 
 (defun spacemacs/useless-buffer-p (buffer)
   "Determines if a buffer is useful."
@@ -352,11 +345,10 @@ argument takes the kindows rotate backwards."
 (defun spacemacs/show-and-copy-buffer-filename ()
   "Show the full path to the current file in the minibuffer."
   (interactive)
-  (let ((file-name (buffer-file-name)))
+  ;; list-buffers-directory is the variable set in dired buffers
+  (let ((file-name (or (buffer-file-name) list-buffers-directory)))
     (if file-name
-        (progn
-          (message file-name)
-          (kill-new file-name))
+        (message (kill-new file-name))
       (error "Buffer not visiting a file"))))
 
 ;; adapted from bozhidar
@@ -602,7 +594,8 @@ current window."
   "Dispatch to flycheck or standard emacs error."
   (interactive "P")
   (if (and (boundp 'flycheck-mode)
-           (symbol-value flycheck-mode))
+           (symbol-value flycheck-mode)
+           (not (get-buffer-window "*compilation*")))
       (call-interactively 'flycheck-next-error)
     (call-interactively 'next-error)))
 
@@ -610,7 +603,8 @@ current window."
   "Dispatch to flycheck or standard emacs error."
   (interactive "P")
   (if (and (boundp 'flycheck-mode)
-           (symbol-value flycheck-mode))
+           (symbol-value flycheck-mode)
+           (not (get-buffer-window "*compilation*")))
       (call-interactively 'flycheck-previous-error)
     (call-interactively 'previous-error)))
 

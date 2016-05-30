@@ -3,7 +3,6 @@
 .*
 */*
 # But not these files
-!.emacs.d/
 !.spacemacs
 !.lein/
 !*.fonts/

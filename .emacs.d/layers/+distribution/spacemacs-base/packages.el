@@ -15,6 +15,7 @@
         (bind-map :step pre)
         bookmark
         diminish
+        (dired-x :location built-in)
         (electric-indent-mode :location built-in)
         ediff
         eldoc
@@ -106,17 +107,13 @@
         (when (eval-when-compile (version< "24.3.1" emacs-version))
           (diminish 'subword-mode))))))
 
-(defun spacemacs-base/init-eldoc ()
-  (use-package eldoc
-    :defer t
-    :config
-    (progn
-      ;; enable eldoc in `eval-expression'
-      (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
-      ;; enable eldoc in IELM
-      (add-hook 'ielm-mode-hook #'eldoc-mode)
-      ;; don't display eldoc on modeline
-      (spacemacs|hide-lighter eldoc-mode))))
+(defun spacemacs-base/init-dired-x ()
+  (autoload 'dired-jump "dired-x"
+    "Jump to Dired buffer corresponding to current buffer." t)
+
+  (autoload 'dired-jump-other-window "dired-x"
+    "Like \\[dired-jump] (dired-jump) but in other window." t))
+
 
 (defun spacemacs-base/init-electric-indent-mode ()
   (electric-indent-mode))
@@ -229,7 +226,7 @@
     :config
     (progn
       ;; bind function keys
-
+      (define-key evil-motion-state-map [C-i] 'evil-jump-forward)
       ;; evil ex-command key
       (define-key evil-normal-state-map (kbd dotspacemacs-command-key) 'evil-ex)
       (define-key evil-visual-state-map (kbd dotspacemacs-command-key) 'evil-ex)
@@ -426,11 +423,11 @@ Example: (evil-map visual \"<\" \"<gv\")"
 
       ;; Define history commands for comint
       (evil-define-key 'insert comint-mode-map
-        (kbd "C-k") 'comint-next-input
-        (kbd "C-j") 'comint-previous-input)
+        (kbd "C-k") 'comint-previous-input
+        (kbd "C-j") 'comint-next-input)
       (evil-define-key 'normal comint-mode-map
-        (kbd "C-k") 'comint-next-input
-        (kbd "C-j") 'comint-previous-input))))
+        (kbd "C-k") 'comint-previous-input
+        (kbd "C-j") 'comint-next-input))))
 
 (defun spacemacs-base/init-evil-escape ()
   (use-package evil-escape
@@ -1273,14 +1270,15 @@ ARG non nil means that the editing style is `vim'."
                projectile-ag
                projectile-compile-project
                projectile-dired
-               projectile-grep
                projectile-find-dir
                projectile-find-file
                projectile-find-tag
                projectile-find-test-file
+               projectile-grep
                projectile-invalidate-cache
                projectile-kill-buffers
                projectile-multi-occur
+               projectile-project-p
                projectile-project-root
                projectile-recentf
                projectile-regenerate-tags
