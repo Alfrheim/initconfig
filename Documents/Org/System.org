@@ -46,13 +46,13 @@ https://www.digitalocean.com/community/tutorials/instalar-java-en-ubuntu-con-apt
    sudo update-alternatives --config javac
 *** openvpn
 Add at the end certificate:
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 script-security 2
 up /usr/share/openvpn/update-resolv-conf
 down /usr/share/openvpn/update-resolv-conf
 #+END_SRC
 Then install and link:
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 cp /etc/openvpn/update-resolv-conf /usr/share/openvpn/
 chmod ugo+x /usr/share/openvpn/update-resolv-conf
 apt-get install resolvconf
