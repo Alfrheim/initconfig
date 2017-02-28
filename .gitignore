@@ -9,6 +9,7 @@
 !Documents/Org/
 !bin/
 !.gitignore
-!.xmonad/
+!.xmonad/touchpadHandler.sh
+!.xmonad/xmonad.hs
 !.xmobarrc
 !.xinitrc
