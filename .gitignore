@@ -9,3 +9,6 @@
 !Documents/Org/
 !bin/
 !.gitignore
+!.xmonad/
+!.xmobarrc
+!.xinitrc
