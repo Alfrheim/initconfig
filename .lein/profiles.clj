@@ -5,5 +5,7 @@
 
 :user {:plugins [[lein-localrepo "0.5.3"]
                  [lein-midje "3.2.1"]
-                 [lein-auto "0.1.3"]]}}
+                 [lein-auto "0.1.3"]
+                 [lein-ring "0.11.0"]]}
+ :repositories [["localrepo1" "file:///home/alfrheim/.lein/repo/"]]}
 
