@@ -1,3 +1,4 @@
+;; -*- mode: dotspacemacs -*-
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
@@ -69,7 +70,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(org-gcal                                     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -329,11 +330,26 @@ layers configuration. You are free to put any user code."
   ;;(setq org-descriptive-links nil)
 
   ;; Define the location of the file to hold tasks
-  (setq org-default-notes-file "~/Dropbox/todo-list.org")
+  (setq org-agenda-files '("~/Dropbox/org/"))
+  (global-set-key (kbd "<f12>") (lambda () (interactive) (org-capture nil "t")))
+  ;;(setq org-default-notes-file "~/Dropbox/todo-list.org")
 
   ;; Define a kanban style set of stages for todo tasks
   (setq org-todo-keywords
         '((sequence "TODO" "DOING" "BLOCKED" "REVIEW" "|" "DONE" "ARCHIVED")))
+
+  ;; Source: https://www.suenkler.info/docs/emacs-orgmode/
+  (setq org-capture-templates
+        '(
+          ;; Create Todo under todo.org -> Tasks
+          ;; file+olp specifies to full path to fill the Template
+          ("t" "Task TODO" entry (file+olp "~/Dropbox/org/todo.org" "Tasks")
+           "* TODO %? \n:PROPERTIES:\n:CREATED: %U\n:END:")
+          ;; Create Todo under GTD.org -> Private -> Tasks
+          ;; file+olp specifies to full path to fill the Template
+          ;; ("p" "Private TODO" entry (file+olp "~/Dropbox/orgmode/GTD.org" "Private" "Tasks") 
+          ;;  "* TODO %? \n:PROPERTIES:\n:CREATED: %U\n:END:")
+          ))
 
   ;; Setting Colours (faces) for todo states to give clearer view of work
   (setq org-todo-keyword-faces
@@ -347,7 +363,16 @@ layers configuration. You are free to put any user code."
   ;; Progress Logging
   ;; When a TODO item enters DONE, add a CLOSED: property with current date-time stamp
   (setq org-log-done 'time)
+
+  (defun alfrheim/gtd ()
+    (interactive)
+    (find-file "~/Dropbox/org/todo.org"))
+
+  (bind-key "C-x p" 'pop-to-mark-command)
+  (setq set-mark-command-repeat-pop t)
   )
+
+
 
 (defun string->sql
     ()
@@ -390,7 +415,7 @@ layers configuration. You are free to put any user code."
  '(magit-log-section-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(org-agenda-files
    (quote
-    ("~/Documents/org/holidays.org" "~/Documents/org/pujades.org"))))
+    ("~/Dropbox/org/todo.org" "~/Dropbox/org/holidays.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
