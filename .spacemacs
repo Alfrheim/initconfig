@@ -52,6 +52,7 @@ values."
           git-gutter-use-fringe t)
      github
      ranger
+     yaml
      html
      javascript
      markdown
@@ -70,7 +71,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(org-gcal                                     )
+   dotspacemacs-additional-packages '(org-gcal mode-icons)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -312,6 +313,8 @@ layers configuration. You are free to put any user code."
   (define-key global-map (kbd "M-)") 'sp-forward-barf-sexp)
   (define-key global-map (kbd "M-(") 'sp-backward-barf-sexp)
 
+  (define-key global-map (kbd "C-j") 'mc/mark-next-like-this)
+
   ;; jr0cket: keybindings for cycling buffers
   (global-set-key [C-prior] 'previous-buffer)
   (global-set-key [C-next] 'next-buffer)
@@ -363,6 +366,9 @@ layers configuration. You are free to put any user code."
   ;; Progress Logging
   ;; When a TODO item enters DONE, add a CLOSED: property with current date-time stamp
   (setq org-log-done 'time)
+
+  (spacemacs|do-after-display-system-init
+   (mode-icons-mode))
 
   (defun alfrheim/gtd ()
     (interactive)
