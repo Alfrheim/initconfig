@@ -1,0 +1,96 @@
+set history=10000 " Number of commands that are remembered.
+set hlsearch      " Highlight search pattern results.
+set ignorecase    " Ignore case of normal letters in a pattern.
+set showmode      " Show current mode on the last line.
+set smartcase     " Override ignorecase if pattern contains upper case.
+
+" Emulated Vim Plugins
+set surround      " Emulates vim-surround
+
+" Exit insert mode.
+inoremap jj <Esc>
+
+" Switch colon with semi-colon.
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
+
+" Stop the highlighting for the current search results.
+nnoremap <Space> :nohlsearch<CR>
+
+" Create newlines without entering insert mode
+nnoremap go o<Esc>k
+nnoremap gO O<Esc>j
+
+:map \sv :action VimWindowSplitVertical<CR>
+:map \sh :action VimWindowSplitHorizontal<CR>
+:map \us :action UnsplitAll<CR>
+
+:map \r :action ReformatCode<CR>
+:map \ci :action OptimizeImports<CR>
+
+:map \orc :action RecentChanges<CR>
+:map \orf :action RecentFiles<CR>
+:map \orp :action ManageRecentProjects<CR>
+:map \cp :action CloseProject<CR>
+
+:map \srt :action ShowRecentTests<CR>
+
+" Toggle git-blame window
+nnoremap za :action Annotate<CR>
+
+" Open one fold under the cursor.
+nnoremap zo :action ExpandRegion<CR>
+
+" Close one fold under the cursor.
+nnoremap zc :action CollapseRegion<CR>
+
+
+
+" Search for trailing spaces and tabs.
+nnoremap g/s /\s\+$<CR>
+nnoremap g/t /\t<CR>
+
+" Toggle frequent settings.
+nnoremap cow :action EditorToggleUseSoftWraps<CR>
+
+" Clipboard cut/copy/paste.
+vnoremap ,x "*x
+nnoremap ,x "*x
+vnoremap ,y "*y
+nnoremap ,y "*y
+nnoremap ,p "*p
+vnoremap ,p "*p
+
+" Find text in path
+nnoremap ,f :action FindInPath<CR>
+
+" ---------------
+" Window Movement
+" ---------------
+nnoremap <silent> gh :WriteBufferIfNecessary<CR>:wincmd h<CR>
+nnoremap <silent> gj :WriteBufferIfNecessary<CR>:wincmd j<CR>
+nnoremap <silent> gk :WriteBufferIfNecessary<CR>:wincmd k<CR>
+nnoremap <silent> gl :WriteBufferIfNecessary<CR>:wincmd l<CR>
+
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+
+"   4 Window Splits
+"
+"   -----------------
+"   g1 | g2 | g3 | g4
+"   -----------------
+nnoremap <silent> g1 :WriteBufferIfNecessary<CR>:wincmd t<CR>
+nnoremap <silent> g2 :WriteBufferIfNecessary<CR>:wincmd t<bar>:wincmd l<CR>
+nnoremap <silent> g3 :WriteBufferIfNecessary<CR>:wincmd t<bar>:wincmd l<bar>
+      \:wincmd l<CR>
+nnoremap <silent> g4 :WriteBufferIfNecessary<CR>:wincmd b<CR>
+
+" Equal Size Windows
+nnoremap <silent> g= :wincmd =<CR>
+" Swap Windows
+nnoremap <silent> gx :wincmd x<CR>
