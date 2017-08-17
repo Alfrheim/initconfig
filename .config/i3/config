@@ -50,8 +50,10 @@ set $urgent-bg-color		#E53935
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+d exec rofi -show run -lines -3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
-bindsym $mod+d exec rofi -show run -font "System San Francisco Display 13"
-
+#bindsym $mod+d exec rofi -show run -config ~/.config/i3/rofi.conf
+bindsym $mod+d exec "rofi -combi-modi window,run -show combi -modi combi -font 'System San Francisco Display 14'"
+bindsym $mod+Shift+d exec rofi -show drun -font "System San Francisco Display 14"
+ 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -100,8 +102,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # work with monitors
-bindsym $mod+Alt+right move workspace to output right
-bindsym $mod+Alt+left move workspace to output left
+bindsym $mod+mod1+Right move workspace to output right
+bindsym $mod+mod1+Left move workspace to output left
 
 # Pulse Audio controls
 #increase sound volume
