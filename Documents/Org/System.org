@@ -36,9 +36,15 @@ sudo wget http://deb.playonlinux.com/playonlinux_trusty.list -O /etc/apt/sources
 sudo apt-get update
 #+END_SRC
 *** Java
+#+BEGIN_SRC sh
+  sudo add-apt-repository ppa:webupd8team/java                                                               
+  apt-get update                                                                                             
+  apt-cache search oracle                                                                                    
+  apt-get install oracle-java8-unlimited-jce-policy   
+#+END_SRC
 https://www.digitalocean.com/community/tutorials/instalar-java-en-ubuntu-con-apt-get-es
 **** change Java
-**** En cas de no tenirne
+**** In case you don't have it
     sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/java-6.31-oracle/bin/java" 1
     sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/java-6.31-oracle/bin/javac" 1
 **** comandes
@@ -61,4 +67,15 @@ ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
 
 More info: [[https://elhombrequereventodeinformacion.wordpress.com/tag/openvpn/][Fix dns problem with OpenVPN]]
 
+*** Enpass
+#+BEGIN_SRC sh
+    echo "deb http://repo.sinew.in/ stable main" >   /etc/apt/sources.list.d/enpass.list
+      wget -O - https://dl.sinew.in/keys/enpass-linux.key | apt-key add -                                        
+      apt-get update                                                                                             
+      apt-get install enpass 
+#+END_SRC   
 
+#+BEGIN_SRC sh
+sudo apt-get install neovim i3 maven git thunar thunar-archive-plugin thunar-data thunar-dropbox-plugin thunar-media-tags-plugin thunar-volman
+dropbox start -i
+#+END_SRC
