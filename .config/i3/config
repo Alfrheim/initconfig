@@ -234,5 +234,7 @@ exec slack
 exec google-chrome
 exec nm-applet
 exec pnmixer
+exec pasystray
+exec /opt/extras.ubuntu.com/touchpad-indicator/bin/touchpad-indicator 
 exec_always feh --bg-scale /home/alfrheim/Pictures/Wallpapers/112131.jpg
 exec_always compton -f
