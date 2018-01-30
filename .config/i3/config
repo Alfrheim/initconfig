@@ -31,8 +31,8 @@ font pango:System San Francisco Display 13
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -238,3 +238,6 @@ exec pasystray
 exec /opt/extras.ubuntu.com/touchpad-indicator/bin/touchpad-indicator 
 exec_always feh --bg-scale /home/alfrheim/Pictures/Wallpapers/112131.jpg
 exec_always compton -f
+
+# for authentication install policykit-desktop-privileges policykit-1-gnome
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
