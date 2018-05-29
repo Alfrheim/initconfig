@@ -25,7 +25,7 @@ nnoremap gO O<Esc>j
 
 :map \sv :action VimWindowSplitVertical<CR>
 :map \sh :action VimWindowSplitHorizontal<CR>
-:map \us :action UnsplitAll<CR>
+:map \sc :action UnsplitAll<CR>
 
 :map \r :action ReformatCode<CR>
 :map \ci :action OptimizeImports<CR>

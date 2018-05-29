@@ -51,21 +51,21 @@ https://www.digitalocean.com/community/tutorials/instalar-java-en-ubuntu-con-apt
    sudo update-alternatives --config java
    sudo update-alternatives --config javac
 *** openvpn
-Add at the end certificate:
-#+BEGIN_SRC sh
-script-security 2
-up /usr/share/openvpn/update-resolv-conf
-down /usr/share/openvpn/update-resolv-conf
-#+END_SRC
-Then install and link:
-#+BEGIN_SRC sh
-cp /etc/openvpn/update-resolv-conf /usr/share/openvpn/
-chmod ugo+x /usr/share/openvpn/update-resolv-conf
-apt-get install resolvconf
-ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
-#+END_SRC
+    Add it the end certificate:
+    #+BEGIN_SRC sh
+    script-security 2
+    up /usr/share/openvpn/update-resolv-conf
+    down /usr/share/openvpn/update-resolv-conf
+    #+END_SRC
+    Then install and link:
+    #+BEGIN_SRC sh
+    cp /etc/openvpn/update-resolv-conf /usr/share/openvpn/
+    chmod ugo+x /usr/share/openvpn/update-resolv-conf
+    apt-get install resolvconf
+    ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
+    #+END_SRC
 
-More info: [[https://elhombrequereventodeinformacion.wordpress.com/tag/openvpn/][Fix dns problem with OpenVPN]]
+    More info: [[https://elhombrequereventodeinformacion.wordpress.com/tag/openvpn/][Fix dns problem with OpenVPN]]
 
 *** Enpass
 #+BEGIN_SRC sh
@@ -79,3 +79,9 @@ More info: [[https://elhombrequereventodeinformacion.wordpress.com/tag/openvpn/]
 sudo apt-get install neovim i3 maven git thunar thunar-archive-plugin thunar-data thunar-dropbox-plugin thunar-media-tags-plugin thunar-volman
 dropbox start -i
 #+END_SRC
+*** Terminal
+    To change to vi mode instead of emacs
+
+    #+BEGIN_SRC sh
+      set -o vi
+    #+END_SRC   

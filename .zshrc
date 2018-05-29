@@ -70,7 +70,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
-
+#set -o vi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -177,4 +177,10 @@ alias grep='grep -i --color=auto'
 alias rm='rm --interactive --verbose'
 alias mv='mv --interactive --verbose'
 alias cp='cp --verbose'
+alias mango='cd ~/Work/Codurance/Mango/'
+alias ifconfig='ip -s -c -h a'
+alias mvn_mango='mvn -s $HOME/Work/Codurance/Mango/Maven/settings.xml -Dmaven.repo.local=$HOME/Work/Codurance/Mango/Maven/repository '
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
