@@ -6,6 +6,7 @@ set smartcase     " Override ignorecase if pattern contains upper case.
 
 " Emulated Vim Plugins
 set surround      " Emulates vim-surround
+set incsearch
 
 " Exit insert mode.
 " inoremap jj <Esc>
@@ -25,7 +26,7 @@ nnoremap gO O<Esc>j
 
 :map \sv :action VimWindowSplitVertical<CR>
 :map \sh :action VimWindowSplitHorizontal<CR>
-:map \sc :action UnsplitAll<CR>
+:map \on :action UnsplitAll<CR>
 
 :map \r :action ReformatCode<CR>
 :map \ci :action OptimizeImports<CR>
