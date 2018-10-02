@@ -181,6 +181,12 @@ alias mango='cd ~/Work/Codurance/Mango/'
 alias ifconfig='ip -s -c -h a'
 alias mvn_mango='mvn -s $HOME/Work/Codurance/Mango/Maven/settings.xml -Dmaven.repo.local=$HOME/Work/Codurance/Mango/Maven/repository '
 
+export ORACLE_HOME="~/Programs/instantclient_18_3"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$ORACLE_HOME/lib:$ORACLE_HOME"
+export PATH="$ORACLE_HOME:$PATH"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+neofetch&
