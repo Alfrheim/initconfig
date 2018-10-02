@@ -24,19 +24,19 @@ nnoremap <Space> :nohlsearch<CR>
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
 
-:map \sv :action VimWindowSplitVertical<CR>
-:map \sh :action VimWindowSplitHorizontal<CR>
-:map \on :action UnsplitAll<CR>
+:map <leader>sv :action VimWindowSplitVertical<CR>
+:map <leader>sh :action VimWindowSplitHorizontal<CR>
+:map <leader>on :action UnsplitAll<CR>
 
-:map \r :action ReformatCode<CR>
-:map \ci :action OptimizeImports<CR>
+:map <leader>r :action ReformatCode<CR>
+:map <leader>ci :action OptimizeImports<CR>
 
-:map \orc :action RecentChanges<CR>
-:map \orf :action RecentFiles<CR>
-:map \orp :action ManageRecentProjects<CR>
-:map \cp :action CloseProject<CR>
+:map <leader>orc :action RecentChanges<CR>
+:map <leader>orf :action RecentFiles<CR>
+:map <leader>orp :action ManageRecentProjects<CR>
+:map <leader>cp :action CloseProject<CR>
 
-:map \srt :action ShowRecentTests<CR>
+:map <leader>srt :action ShowRecentTests<CR>
 
 " Toggle git-blame window
 nnoremap za :action Annotate<CR>
@@ -80,6 +80,8 @@ nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
 
+" vim-easymotions
+nmap <leader><leader>s :action KJumpAction<CR>
 "   4 Window Splits
 "
 "   -----------------
