@@ -119,3 +119,5 @@
 # }}}
 [core]
 	autocrlf = input
+[github]
+	user = alfrheim
