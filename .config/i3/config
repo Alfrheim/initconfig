@@ -22,7 +22,7 @@ font pango:System San Francisco Display 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -251,8 +251,12 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
+
+# Open applications on specific workspaces
+assign [class="Intellij IDEA"] $workspace5 
+
 # Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh #toggle touchpad
+bindsym XF86TouchpadToggle exec ~/bin/toggletouchpad.sh #toggle touchpad
 exec --no-startup-id synclient VertEdgeScroll=0 HorizEdgeScroll=0
 exec --no-startup-id synclient VertTwoFingerScroll=1 HorizTwoFingerScroll=1
 exec --no-startup-id synclient VertScrollDelta=-300 HorizScrollDelta=-300
