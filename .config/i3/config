@@ -275,11 +275,6 @@ exec_always --no-startup-id feh --bg-scale ~/wallpaper.png
 # for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
-# Set keyboard layout
-# check more options with:
-# grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst
-exec --no-startup-id "setxkbmap -layout us,es  -option 'grp:ctrls_toggle'"
-
 # Startup Programs
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dropbox start
@@ -297,4 +292,5 @@ exec_always compton-f
 # adjust color temperature
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id ~/.config/alfrheim/conky/launch
+exec --no-startup-id ~/.config/alfrheim/scripts/remaps.sh
 # exec xrandr --dpi 80 
