@@ -296,4 +296,5 @@ exec --no_startup-id pnmixer
 exec_always compton-f
 # adjust color temperature
 exec --no-startup-id redshift-gtk
+exec_always --no-startup-id ~/.config/alfrheim/conky/launch
 # exec xrandr --dpi 80 
