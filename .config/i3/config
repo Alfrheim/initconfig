@@ -294,4 +294,6 @@ exec blueman-applet
 exec pasystray
 exec --no_startup-id pnmixer
 exec_always compton-f
+# adjust color temperature
+exec --no-startup-id redshift-gtk
 # exec xrandr --dpi 80 
