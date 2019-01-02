@@ -271,6 +271,13 @@ exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
 exec_always --no-startup-id feh --bg-scale ~/wallpaper.jpg
 exec_always --no-startup-id feh --bg-scale ~/wallpaper.png
 
+#gaps
+for_window [class="^.*"] border pixel 0
+smart_gaps on
+gaps inner 10
+# gaps outer 10
+# smart_borders on
+
 #fixing intellij lost of focus
 # for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
