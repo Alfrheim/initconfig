@@ -126,7 +126,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "%a\n<b>%s</b>\n%b"
+    format = "<span font="System San Francisco Display 14">%a\n<b>%s</b>\n%b</span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -183,7 +183,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/google-stable --new-window
+    browser = /usr/bin/google-stable -new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
