@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "500x50-0-0"
+    geometry = "500x5-0-0"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -126,7 +126,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<span font="System San Francisco Display 14">%a\n<b>%s</b>\n%b</span>"
+    format = "<span font="System San Francisco Display 14"><span font_style=italic>%a</span>\n<b>%s</b>\n%b</span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -166,7 +166,8 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path =
+/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 
@@ -174,7 +175,7 @@
     # as if it would normally do.
     sticky_history = yes
 
-    # Maximum amount of notifications kept in history
+   # Maximum amount of notifications kept in history
     history_length = 20
 
     ### Misc/Advanced ###
@@ -206,7 +207,7 @@
     #  mesg: Important Messages
     #  info: all unimportant stuff
     # debug: all less than unimportant stuff
-    verbosity = mesg
+    verbosity = info
 
     # Define the corner radius of the notification window
     # in pixel size. If the radius is 0, you have no rounded
@@ -353,4 +354,24 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
+#
+
+[notify-command-wrapper-success]
+    appname = notify-command-wrapper
+    summary = "*success*"
+    urgency = normal
+    background = "#006400"
+    foreground = "#32CD32"
+    # Couldnt make it work from here
+    #icon = "/home/alfrheim/.config/dunst/icons/ok-icon.png"
+    timeout = 10
+
+[notify-command-wrapper-fail]
+    appname = notify-command-wrapper
+    urgency = normal
+    summary = "*fail*"
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 10
 # vim: ft=cfg

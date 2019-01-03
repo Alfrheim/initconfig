@@ -1,0 +1,10 @@
+#!/bin/bash
+
+OPERATION="notify-send -a notify-command-wrapper" 
+
+if $@ ; then
+    $OPERATION -i ~/.config/dunst/icons/ok-icon.png "$1 success" "'$*'"
+else
+    $OPERATION -i ~/.config/dunst/icons/epic_fail.png "$1 fail" "'$*'"
+fi
+#exec "$@" && $OPERATION
