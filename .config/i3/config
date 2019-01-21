@@ -299,7 +299,7 @@ exec blueman-applet
 #pulse audio system tray
 exec pasystray
 exec --no_startup-id pnmixer
-exec_always compton-f
+exec_always compton -b --config ~/.config/compton/compton.conf
 # adjust color temperature
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id ~/.config/alfrheim/conky/launch

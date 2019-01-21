@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 killall -q conky
 sleep 1
 conky -c ~/.config/alfrheim/conky/conky.conf
