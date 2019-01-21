@@ -62,7 +62,10 @@ bindsym $mod+Shift+d exec rofi -show drun -font "System San Francisco Display 14
 # rofi (dmenu alternative)
 # bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 700 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
-
+# start clipmenu
+#bindsym $mod+control+d exec "env CM_LAUNCHER=rofi clipmenu"
+bindsym $mod+control+v exec "copyq menu"
+        
 
 # change focus
 bindsym $mod+j focus left
@@ -291,6 +294,7 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
 exec --no-startup-id caffeine-indicator
+exec --no-startup-id compton -f
 # keyboard layout indicator
 exec --no-startup-id gxkb
 # touchpad
@@ -299,10 +303,10 @@ exec blueman-applet
 #pulse audio system tray
 exec pasystray
 exec --no_startup-id pnmixer
-exec_always compton-f
 # adjust color temperature
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id ~/.config/alfrheim/conky/launch
 exec --no-startup-id ~/.config/alfrheim/scripts/remaps.sh
-# exec --no-startup-id clipmenud
+#exec --no-startup-id "env CM_IGNORE_WINDOW=Enpass clipmenud"
+exec --no-startup-id copyq
 # exec xrandr --dpi 80 
