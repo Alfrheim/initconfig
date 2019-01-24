@@ -5,7 +5,12 @@
   - Move files to /etc/nixos/
   - Try the config running:
 ```
-nixos-rebuild build
+cp *.nix /etc/nixos/
+nixos-rebuild switch
+```
+How to check changes:
+```
+$ diff -p /etc/nixos/ .
 ```
 
 # TODO
@@ -13,6 +18,6 @@ nixos-rebuild build
   - remove nvidia configuration
   - add configuration for dual boot
   - add configuration for encrypted disk
-  - find alternative to copy files
+  - find alternative to copy files (see rsync)
 
 

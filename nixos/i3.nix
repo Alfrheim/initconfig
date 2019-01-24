@@ -19,6 +19,7 @@
     gnomeExtensions.caffeine
     i3blocks
     i3lock-pixeled
+    i3status
     pasystray
     pavucontrol 
     rofi
