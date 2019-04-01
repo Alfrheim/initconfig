@@ -85,3 +85,6 @@ dropbox start -i
     #+BEGIN_SRC sh
       set -o vi
     #+END_SRC   
+
+*** Identify who is using a port
+    lsof -i :8080

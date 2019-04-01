@@ -6,23 +6,30 @@ set smartcase     " Override ignorecase if pattern contains upper case.
 
 " Emulated Vim Plugins
 set surround      " Emulates vim-surround
+set vim-multiple-cursors
 set incsearch
 
-" Exit insert mode.
-" inoremap jj <Esc>
-
-" Switch colon with semi-colon.
-" nnoremap ; :
-" nnoremap : ;
-" vnoremap ; :
-" vnoremap : ;
-
 " Stop the highlighting for the current search results.
-nnoremap <Space> :nohlsearch<CR>
+nnoremap , :nohlsearch<CR>
+
+" changing leader key to space so its similar to spacemacs
+map <Space> <leader>
 
 " Create newlines without entering insert mode
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
+
+" Open Recent ...
+:map <leader>orc :action RecentChanges<CR>
+:map <leader>orf :action RecentFiles<CR>
+:map <leader>orp :action ManageRecentProjects<CR>
+:map <leader>ort :action ShowRecentTests<CR>
+
+" Project maps
+:map <leader>pc :action CloseProject<CR>
+
+nnoremap gy yyP\:action CommentByLineComment<CR>
+nnoremap <leader>rs :source ~/.ideavimrc<CR>
 
 :map <leader>sv :action VimWindowSplitVertical<CR>
 :map <leader>sh :action VimWindowSplitHorizontal<CR>
@@ -30,13 +37,6 @@ nnoremap gO O<Esc>j
 
 :map <leader>r :action ReformatCode<CR>
 :map <leader>ci :action OptimizeImports<CR>
-
-:map <leader>orc :action RecentChanges<CR>
-:map <leader>orf :action RecentFiles<CR>
-:map <leader>orp :action ManageRecentProjects<CR>
-:map <leader>cp :action CloseProject<CR>
-
-:map <leader>srt :action ShowRecentTests<CR>
 
 " Toggle git-blame window
 nnoremap za :action Annotate<CR>
@@ -67,33 +67,5 @@ vnoremap ,p "*p
 " Find text in path
 nnoremap ,f :action FindInPath<CR>
 
-" ---------------
-" Window Movement
-" ---------------
-nnoremap <silent> gh :WriteBufferIfNecessary<CR>:wincmd h<CR>
-nnoremap <silent> gj :WriteBufferIfNecessary<CR>:wincmd j<CR>
-nnoremap <silent> gk :WriteBufferIfNecessary<CR>:wincmd k<CR>
-nnoremap <silent> gl :WriteBufferIfNecessary<CR>:wincmd l<CR>
-
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
-
 " vim-easymotions
 nmap <leader><leader>s :action KJumpAction<CR>
-"   4 Window Splits
-"
-"   -----------------
-"   g1 | g2 | g3 | g4
-"   -----------------
-nnoremap <silent> g1 :WriteBufferIfNecessary<CR>:wincmd t<CR>
-nnoremap <silent> g2 :WriteBufferIfNecessary<CR>:wincmd t<bar>:wincmd l<CR>
-nnoremap <silent> g3 :WriteBufferIfNecessary<CR>:wincmd t<bar>:wincmd l<bar>
-      \:wincmd l<CR>
-nnoremap <silent> g4 :WriteBufferIfNecessary<CR>:wincmd b<CR>
-
-" Equal Size Windows
-nnoremap <silent> g= :wincmd =<CR>
-" Swap Windows
-nnoremap <silent> gx :wincmd x<CR>
