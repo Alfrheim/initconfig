@@ -1,2 +1,3 @@
 urxvt*scrollBar: 	false
 urxvt*font:             xft:Source Code Pro
+URxvt.letterSpace: 	1

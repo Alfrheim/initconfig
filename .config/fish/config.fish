@@ -10,3 +10,4 @@ end
 
 #disable Ctrl-S for freezing the shell
 #stty -ixon
+eval (direnv hook fish)

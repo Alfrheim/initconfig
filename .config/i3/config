@@ -310,4 +310,6 @@ exec_always --no-startup-id ~/.config/alfrheim/conky/launch
 exec --no-startup-id ~/.config/alfrheim/scripts/remaps.sh
 #exec --no-startup-id "env CM_IGNORE_WINDOW=Enpass clipmenud"
 exec --no-startup-id copyq
+exec --no-startup-id cerebro
+exec --no-startup-id guake
 # exec xrandr --dpi 80 

@@ -5,7 +5,7 @@ set -x DISPLAY ":0"
 set -x DYNAMIC_COLORS_ROOT "~/.config/dynamic-colors/"
 set -x EDITOR /usr/bin/vim
 # set -x JAVA_HOME "/usr/lib/jvm/java-10-openjdk"
-set -x QT_SCALE_FACTOR 1
+# set -x QT_SCALE_FACTOR 1
 set -x XDG_CONFIG_HOME "~/.config"
 set -x XDG_DATA_HOME "~/.local/share"
 

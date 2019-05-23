@@ -49,7 +49,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker battery mvn lein zsh-completions)
+plugins=(git docker battery mvn lein zsh-completions docker docker-compose)
 autoload -U compinit && compinit
 # User configuration
 
@@ -179,15 +179,36 @@ alias mv='mv --interactive --verbose'
 alias cp='cp --verbose'
 alias mango='cd ~/Work/Codurance/Mango/'
 alias ifconfig='ip -s -c -h a'
-alias mvn_mango='mvn -s $HOME/Work/Codurance/Mango/Maven/settings.xml -Dmaven.repo.local=$HOME/Work/Codurance/Mango/Maven/repository '
+alias mvn_mango='mvn -s $HOME/Work/Codurance/Mango/Maven/settings.xml -Dmaven.repo.local=$HOME/Work/Codurance/Mango/Maven/repository %@'
+alias mvn='mvn $MAVEN_PARAMS'
+alias e='emacsclient -t'
+alias em="emacsclient -a '' -nqc"
 
 export ORACLE_HOME="~/Programs/instantclient_18_3"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$ORACLE_HOME/lib:$ORACLE_HOME"
 export PATH="$ORACLE_HOME:$PATH"
+USER_BASE_PATH=$(python -m site --user-base)
+export PATH=$PATH:$USER_BASE_PATH/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+bindkey -v
+
+mvnfunction() {
+    mvn $MAVEN_PARAMS "$@"
+}
+
 neofetch&
 eval "$(direnv hook zsh)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/alfrheim/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/alfrheim/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/alfrheim/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/alfrheim/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/alfrheim/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/alfrheim/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
