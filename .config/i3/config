@@ -37,7 +37,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec stterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -261,6 +262,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 # Applications shortcuts
 bindsym $mod+b exec qutebrowser
+bindsym $mod+Shift+h exec ~/.screenlayout/home.sh
+bindsym $mod+Shift+w exec ~/.screenlayout/work.sh
+bindsym $mod+Shift+a exec ~/.screenlayout/alone.sh
 
 # Open applications on specific workspaces
 assign [class="Intellij IDEA"] $workspace5 

@@ -1,6 +1,8 @@
 [user]
 	email = marc.badiac@gmail.com
 	name = Alfrheim
+[includeif "gitdir:~/Work/"]
+	path = ~/Work/.gitconfig
 [credential]
 	helper = cache
 [alias]
