@@ -14,6 +14,12 @@ echo "deb https://apt.enpass.io/ stable main" >  /etc/apt/sources.list.d/enpass.
 wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add -
 apt-get update
 apt-get install enpass
+
+# Installing shutter
+sudo add-apt-repository ppa:linuxuprising/shutter
+sudo apt-get update
+sudo apt install -y shutter
+
 sudo apt install -y virtualbox mono-devel docker-compose
 
 # grant docker permission
@@ -28,6 +34,8 @@ sudo snap install spotify
 sudo snap install opera
 sudo snap install telegram-desktop
 
+# Ergodox (Wally)
+sudo apt-get install gtk+3.0 webkit2gtk-4.0 libusb-dev
 
 cd /tmp
 
