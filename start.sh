@@ -1,6 +1,6 @@
 
 # Installing i3 requisites
-sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev 
+sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev chromium-browser
 sudo apt install -y caffeine pavucontrol thunar arandr  xbacklight feh rofi compton policykit-desktop-privileges policykit-1-gnome openvpn copyq rxvt-unicode i3status rofi zsh i3blocks guake gxkb blueman pasystray pnmixer xserver-xorg-input-synaptics redshift-gtk qutebrowser i3lock playerctl direnv neofetch stterm
 
 sudo apt install -y vim vim-common git curl emacs  yadm
@@ -12,8 +12,8 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 sudo -i
 echo "deb https://apt.enpass.io/ stable main" >  /etc/apt/sources.list.d/enpass.list
 wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add -
-apt-get update
-apt-get install enpass
+sudo apt-get update
+sudo apt-get install enpass
 
 # Installing shutter
 sudo add-apt-repository ppa:linuxuprising/shutter
