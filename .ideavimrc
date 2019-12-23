@@ -8,6 +8,8 @@ set smartcase     " Override ignorecase if pattern contains upper case.
 set surround      " Emulates vim-surround
 set vim-multiple-cursors
 set incsearch
+" Install IdeaVim-EasyMotion and AceJump plugins.
+set easymotion
 
 " Stop the highlighting for the current search results.
 nnoremap , :nohlsearch<CR>
@@ -31,8 +33,8 @@ nnoremap gO O<Esc>j
 nnoremap gy yyP\:action CommentByLineComment<CR>
 nnoremap <leader>rs :source ~/.ideavimrc<CR>
 
-:map <leader>sv :action VimWindowSplitVertical<CR>
-:map <leader>sh :action VimWindowSplitHorizontal<CR>
+:map <leader>sv :action SplitVertically<CR>
+:map <leader>sh :action SplitHorizontally<CR>
 :map <leader>on :action UnsplitAll<CR>
 
 :map <leader>r :action ReformatCode<CR>
@@ -65,7 +67,7 @@ nnoremap ,p "*p
 vnoremap ,p "*p
 
 " Find text in path
-nnoremap ,f :action FindInPath<CR>
+nnoremap <leader> F :action FindInPath<CR>
 
-" vim-easymotions
-nmap <leader><leader>s :action KJumpAction<CR>
+" Find
+nnoremap <leader> f :action Find<CR>

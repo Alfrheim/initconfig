@@ -51,6 +51,7 @@
 	dlc = diff --cached HEAD^
 	dr  = "!f() { git diff -w "$1"^.."$1"; }; f"
 	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+	dcb = log --left-right --graph --cherry-pick --oneline
 	# reset commands
 	r1 = reset HEAD^
 	r2 = reset HEAD^^
@@ -94,7 +95,7 @@
 	#open markdown files edited in last commit
 	last = "!gvim $(git show HEAD --format="" --name-only | grep -e .*md$ | xargs)"
 	#open just created markdown in working directory
-	newmd = "!gvim $(git status -s | awk {'print $2'})"
+	newmd = "!vim $(git status -s | awk {'print $2'})"
 
 	# initial empty commit
 	empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
