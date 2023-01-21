@@ -1,3 +1,6 @@
+# [DEPRECATED] 
+not using anymore. I just have it as a reference. I am using nixos with a private repository until I separate the private config I have there.
+
 # initconfig
 
 Basic config to share between computers.
